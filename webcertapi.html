@@ -73,6 +73,13 @@
 	</section>
 
 	<section>
+		<h2>Certificate Selection</h2>
+		<section>
+			<h3>Consideration for Disbilities</h3>
+		</section>
+	</section>
+
+	<section>
 		<h2>Certificate Validation</h2>
 		<p>certificate validation needs more mechanisms than public validation</p>
 		<section>
@@ -84,13 +91,43 @@
 				<h4>CRL Distribution Point</h4>
 			</section>
 		</section>
+		<section>
+			<h3>Certificate OCSP Validation</h3>
+		</section>
 	</section>
 
+	<section>
+		<h2>Control of TLS Session</h2>
+		<section>
+			<h3>TLS Login/Logout Control</h3>
+		</section>
+		<section>
+			<h3>Derivation of certificates from TLS session</h3>
+			<section>
+				<h4>Derivation of server certificate from TLS session</h4>
+			</section>
+			<section>
+				<h4>Derivation of client certificate from TLS session</h4>
+			</section>
+		</section>
+	</section>
+
+	<section>
+		<h2>Data Structures</h2>
+		<section>
+			<h3>JOSE and CMS</h3>
+		</section>
+		<section>
+			<h3>Common Data Structures of CMP</h3>
+		</section>
+	</section>
 	<section>
 		<h2>Security Considerations</h2>
 		<section>
 			<h3>Same-Origin Policy</h3>
 			<p>Same Origin Policy is base security policy of WebCrypto API</p>
+			<p>to keep the backward compatibility, some conditional exceptions are required but it does not mean the multiple connections to multiple origins</p> 
+			<p>the exceptions are only for accessing private keys that is binded to some origin initiated from different origin when the faired certificate is valid</p>
 			<p>the exceptions of same-origin policy can be allowed by following conditions</p>
 			<ul>
 				<li>private key access binded to valid certificate
