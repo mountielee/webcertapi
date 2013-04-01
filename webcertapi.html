@@ -48,52 +48,66 @@
 		<h2>Certificate Management Protocol</h2>
 		<p>the web certificate api based on the certificate management protocol follows by RFC4210. </p>
 		<p>this specification focus on user agent side of RFC4210 CMP</P>
-		<section>
+		<section class='informative'>
 			<h3>Overview</h3>
 			<p>the specification is trying to keep existing RA/CA services with minor changes</p>
 			<p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
 		</section>	
-		<section>
+		<section class='informative'>
 			<h3>Initialization Request</h3>
+			<p>Initialization Request send Initial Authentication Key (IAK) that is generated from RA/CA after verifying End-Entity and reference value to track enrollment process</p>
 		</section>	
 		<section>
 			<h3>Initialization Response</h3>
+			<p>RA/CA verify Initial Authentication Key and return the response.</p>
+			<p>the response message contain CertRepMessage of http://tools.ietf.org/html/rfc4210#section-5.3.2 </p>
 		</section>	
-		<section>
+		<section class='informative'>
 			<h3>Certificate Request</h3>
+			<p>Certificate Request is the next step of initialization request-response</p>
 		</section>	
 		<section>
 			<h3>Certificate Response</h3>
+			<p>RA/CA generate Certificate for Requested End-Entity.</p>
+			<p>the response message contain the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.4 </p>
 		</section>	
-		<section>
+		<section class='informative'>
 			<h3>Revocation Request</h3>
+			<p>When End-Entity(EE) need to revoke certificate, EE generate signed revocation request and send it to RA/CA.</p>
 		</section>	
 		<section>
 			<h3>Revocation Response</h3>
+			<p>after verifying requestor's signature, RA/CA revoke certificate and response with the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.10 </p>
 		</section>	
 	</section>
 
 	<section>
 		<h2>Certificate Selection</h2>
-		<section>
+		<p>Certificate Selection UI is dependent on implementor's or existing TLS Client Certificate Selection UI.</p>
+		<section class='informative'>
 			<h3>Consideration for Disabilities</h3>
+			<p>the selection UI should be desinged for W3C Web Accessibility Initiative (WAI, http://www.w3.org/WAI/)</p>
 		</section>
 	</section>
 
 	<section>
 		<h2>Certificate Validation</h2>
-		<p>certificate validation needs more mechanisms than public validation</p>
+		<p>certificate validation is added on to public key verification.</p>
 		<section>
 			<h3>Certificate Chain Validation</h3>
+			<p>certificate chain validation validate certificate chains up to the trusted RootCA.</p>
 		</section>
 		<section>
 			<h3>Certificate CRL Validation</h3>
+			<p>when validating certificate, certificate revocation list will be optionally checked.
 			<section>
 				<h4>CRL Distribution Point</h4>
+				<p>when the full CRL size is too big to download on low speed network environment, CRLDP can be used for effective CRL checking.</p>
 			</section>
 		</section>
 		<section>
 			<h3>Certificate OCSP Validation</h3>
+			<p>Online Certificate Status Protocol(OCSP) can be optionally used to validate certificate.</p>
 		</section>
 	</section>
 
