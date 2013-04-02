@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Certificate API Specification</title>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+<script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove' async></script>
+<script class='remove'>
+      var respecConfig = {
+          // document info
+          specStatus:           "ED",
+          shortName:            "webcertapi",
+          // publishDate:   "2013-03-29",
+          // previousMaturity: "WD",
+          // previousPublishDate:  "2009-03-15",
+          // previousURI : "http://dev.w3.org/2009/dap/ReSpec.js/documentation.html",
+          copyrightStart:       "2013",
+          edDraftURI:           "http://mountielee.github.com/webcertapi/webcertapi.html",
+          // lcEnd:  "2010-08-06",
+          // extraCSS:             ["../css/respec.css"],
+          extraCSS:             ["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
+
+          // editors
+          editors:  [
+              { name: "Mountie Lee", url: "",
+                company: "PayGate", companyURL: "http://www.paygate.net/" },
+          ],
+          
+          // WG
+          wg:           "Web Cryptography Working Group",
+          wgURI:        "http://www.w3.org/2012/webcrypto/",
+          wgPublicList: "",
+          wgPatentURI:  "",
+      };
+    </script>
+</head>
+<body>
+	<section id='abstract'>
+		the Web Certificate API is the specification for Web Certificate Management Protocol based on RFC-4210,
+		control of TLS session and derivation of keys from TLS sessions
+	</section>
+
+	<section id='sotd'>
+		<p>the table of contents are defined by Working Group Charter and email comments.</p>
+		<p>definition of WebIDL will be added after getting consensus for table of contents.</p>
+	</section>
+
+	<section>
+		<h2>Certificate Management Protocol</h2>
+		<p>the web certificate api based on the certificate management protocol follows by RFC4210. </p>
+		<p>this specification focus on user agent side of RFC4210 CMP</P>
+		<section class='informative'>
+			<h3>Overview</h3>
+			<p>the specification is trying to keep existing RA/CA services with minor changes</p>
+			<p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
+		</section>	
+		<section class='informative'>
+			<h3>Initialization Request</h3>
+			<p>Initialization Request send Initial Authentication Key (IAK) that is generated from RA/CA after verifying End-Entity and reference value to track enrollment process</p>
+		</section>	
+		<section>
+			<h3>Initialization Response</h3>
+			<p>RA/CA verify Initial Authentication Key and return the response.</p>
+			<p>the response message contain CertRepMessage of http://tools.ietf.org/html/rfc4210#section-5.3.2 </p>
+		</section>	
+		<section class='informative'>
+			<h3>Certificate Request</h3>
+			<p>Certificate Request is the next step of initialization request-response</p>
+		</section>	
+		<section>
+			<h3>Certificate Response</h3>
+			<p>RA/CA generate Certificate for Requested End-Entity.</p>
+			<p>the response message contain the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.4 </p>
+		</section>	
+		<section class='informative'>
+			<h3>Revocation Request</h3>
+			<p>When End-Entity(EE) need to revoke certificate, EE generate signed revocation request and send it to RA/CA.</p>
+		</section>	
+		<section>
+			<h3>Revocation Response</h3>
+			<p>after verifying requestor's signature, RA/CA revoke certificate and response with the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.10 </p>
+		</section>	
+	</section>
+
+	<section>
+		<h2>Certificate Selection</h2>
+		<p>Certificate Selection UI is dependent on implementor's or existing TLS Client Certificate Selection UI.</p>
+		<section class='informative'>
+			<h3>Consideration for Disabilities</h3>
+			<p>the selection UI should be desinged for W3C Web Accessibility Initiative (WAI, http://www.w3.org/WAI/)</p>
+		</section>
+	</section>
+
+	<section>
+		<h2>Certificate Validation</h2>
+		<p>certificate validation is added on to public key verification.</p>
+		<section>
+			<h3>Certificate Chain Validation</h3>
+			<p>certificate chain validation validate certificate chains up to the trusted RootCA.</p>
+		</section>
+		<section>
+			<h3>Certificate CRL Validation</h3>
+			<p>when validating certificate, certificate revocation list will be optionally checked.
+			<section>
+				<h4>CRL Distribution Point</h4>
+				<p>when the full CRL size is too big to download on low speed network environment, CRLDP can be used for effective CRL checking.</p>
+			</section>
+		</section>
+		<section>
+			<h3>Certificate OCSP Validation</h3>
+			<p>Online Certificate Status Protocol(OCSP) can be optionally used to validate certificate.</p>
+		</section>
+	</section>
+
+	<section>
+		<h2>Control of TLS Session</h2>
+		<section>
+			<h3>TLS Login/Logout Control</h3>
+		</section>
+		<section>
+			<h3>Derivation of certificates from TLS session</h3>
+			<section>
+				<h4>Derivation of server certificate from TLS session</h4>
+			</section>
+			<section>
+				<h4>Derivation of client certificate from TLS session</h4>
+			</section>
+		</section>
+	</section>
+
+	<section>
+		<h2>Data Structures</h2>
+		<section>
+			<h3>JOSE and CMS</h3>
+		</section>
+		<section>
+			<h3>Common Data Structures of CMP</h3>
+		</section>
+	</section>
+	<section>
+		<h2>Security Considerations</h2>
+		<section>
+			<h3>Same-Origin Policy</h3>
+			<p>Same Origin Policy is base security policy of WebCrypto API</p>
+			<p>to keep the backward compatibility, some conditional exceptions are required but it does not mean the multiple connections to multiple origins</p> 
+			<p>the exceptions are only for accessing private keys that is binded to some origin initiated from different origin when the faired certificate is valid</p>
+			<p>the exceptions of same-origin policy can be allowed by following conditions</p>
+			<ul>
+				<li>private key access binded to valid certificate
+				<li>the certificate issued by valid CA
+				<li>the CA is listed in trusted CA list of user agent
+			</ul>
+		</section>
+		<section>
+			<h3>Certificate KeyStorage</h3>
+			<p>Certificate KeyStorage should be interoperable with existing TLS Key Storage</p>
+			<p>to keep the backward compatibility, when the certificate is installed into user agent, it will be listed in TLS Key Storage of user agent</p>
+			<p>but the certificate operations will be restricted by the KeyUsage defined in certificate inside.</p>
+			<p>when the certificate and private key pair is inserted via PKCS#11 interface into TLS Key Storage, it also can be used by webcrypto API with valid KeyUsage</p>
+		</section>
+	</section>
+</body>
+</html>
+
