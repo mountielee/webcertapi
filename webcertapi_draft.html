@@ -74,152 +74,160 @@
 
 
 	// local bibliography
-	// localBiblio: { } 
-
+	localBiblio: {
+"CSP" : "B. Sterne and A. Barth <a href=\"http://www.w3.org/TR/CSP/\"><cite>Content Security Policy 1.0</cite></a>. W3C Candidate Recommendation. (Work in progress.) URL: <a href=\"http://www.w3.org/TR/2012/CR-CSP-20121115/\">http://www.w3.org/TR/2012/CR-CSP-20121115/</a>",
+"XFRAMEOPTIONS" : "D. Ross and T. Gondrom, IETF <a href=\"http://tools.ietf.org/html/draft-ietf-websec-x-frame-options-01\"><cite>HTTP Header X-Frame-Options</cite></a>. Internet Draft. (Work in Progress.) URL: <a href=\"http://tools.ietf.org/html/draft-ietf-websec-x-frame-options-01\">http://tools.ietf.org/html/draft-ietf-websec-x-frame-options-01</a>",
+"CLEARCLICK" : "G. Maone <a href=\"http://noscript.net/downloads/ClearClick_WAS2012_rv2.pdf\"><cite>ClearClick: Effective Client-Side Protection Against UI Redressing Attacks</cite></a>. (Work in progress.) URL: <a href=\"http://noscript.net/downloads/ClearClick_WAS2012_rv2.pdf\">http://noscript.net/downloads/ClearClick_WAS2012_rv2.pdf</a>",
+"UIREDRESS" : "M. Zalewski <a href=\"http://code.google.com/p/browsersec/wiki/Part2#Arbitrary_page_mashups_(UI_redressing)\"><cite>Browser Security Handbook, part 2</cite></a>. URL: <a href=\"http://code.google.com/p/browsersec/wiki/Part2#Arbitrary_page_mashups_(UI_redressing)\">http://code.google.com/p/browsersec/wiki/Part2#Arbitrary_page_mashups_(UI_redressing)</a>",
+"FRAMEBUSTING" : "Boneh, et al. <a href=\"http://seclab.stanford.edu/websec/framebusting/\"><cite>Busting frame busting: a study of clickjacking vulnerabilities at popular sites</cite></a>. URL: <a href=\"http://seclab.stanford.edu/websec/framebusting/\">http://seclab.stanford.edu/websec/framebusting/</a>",
+"INCONTEXT" : "Lin-Shung Huang, et al. <a href=\"https://www.usenix.org/system/files/conference/usenixsecurity12/sec12-final39.pdf\"><cite>Clickjacking:Attacks and Defenses</cite></a> published in the 21st USENIX Security Symposium Proceedings.  URL: <a href=\"https://www.usenix.org/system/files/conference/usenixsecurity12/sec12-final39.pdf\">https://www.usenix.org/system/files/conference/usenixsecurity12/sec12-final39.pdf</a>","SELECTORS4" : "Elika J. Etemad. <a href=\"http://www.w3.org/TR/2011/WD-selectors4-20110929/\"><cite>Selectors Level 4.</cite></a> 29 September 2011. W3C Working Draft. (Work in progress.) URL: <a href=\"http://www.w3.org/TR/2011/WD-selectors4-20110929/\">http://www.w3.org/TR/2011/WD-selectors4-20110929/</a>","POINTER-EVENTS" : "Jacob Rossi and Matt Brubeck. <a href=\"http://www.w3.org/TR/pointerevents/\"><cite>Pointer Events.</cite></a> 19 February 2013 W3C Working Draft. (Work in progress.) URL: <a href=\"http://www.w3.org/TR/pointerevents/\">http://www.w3.org/TR/pointerevents/</a>", "CAPTCHA-Wikipedia" : "Wikipedia <a href=\"http://en.wikipedia.org/wiki/CAPTCHA\"><cite>CAPTCHA</cite></a> from Wikipedia. URL: <a href=\"http://en.wikipedia.org/wiki/CAPTCHA\">http://en.wikipedia.org/wiki/CAPTCHA</a>", "CLICKJACKING-Unresolved" : "Lin-Shung Huang and Collin Jackson. <a href=\"https://docs.google.com/document/pub?id=1hVcxPeCidZrM5acFH9ZoTYzg1D0VjkG3BDW_oUdn5qc\"><cite>Clickjacking Attacks Unresolved.</cite></a> Carnegie Mellon University, 06 July 2011. URL: <a href=\"https://docs.google.com/document/pub?id=1hVcxPeCidZrM5acFH9ZoTYzg1D0VjkG3BDW_oUdn5qc\">https://docs.google.com/document/pub?id=1hVcxPeCidZrM5acFH9ZoTYzg1D0VjkG3BDW_oUdn5qc</a>","CSP11" : "A. Barth, D. Veditz and M. West <a href=\"https://dvcs.w3.org/hg/content-security-policy/raw-file/tip/csp-specification.dev.html\"><cite>Content Security Policy 1.1</cite></a>. W3C Editors' Draft. (Work in progress.) URL: <a href=\"https://dvcs.w3.org/hg/content-security-policy/raw-file/tip/csp-specification.dev.html\">https://dvcs.w3.org/hg/content-security-policy/raw-file/tip/csp-specification.dev.html</a>" 
+		     }
       };
     </script>
 </head>
 <body>
-	<section id='abstract'>
-		the Web Certificate API is the specification for Web Certificate Management Protocol based on RFC-4210,
-		control of TLS session and derivation of keys from TLS sessions
-	</section>
+<section id='abstract'>
+	the Web Certificate API is the specification for Web Certificate Management Protocol based on RFC-4210,
+	control of TLS session and derivation of keys from TLS sessions
+</section>
 
-	<section id='sotd'>
-		<p>the table of contents are defined by Working Group Charter and email comments.</p>
-		<p>definition of WebIDL will be added after getting consensus for table of contents.</p>
-	</section>
+<section id='sotd'>
+	<p>the table of contents are defined by Working Group Charter and email comments.</p>
+	<p>definition of WebIDL will be added after getting consensus for table of contents.</p>
+</section>
 
+<section>
+	<h2>Introduction</h2>
+</section>
+<section>
+	<h2>Use Cases</h2>
+</section>
+<section>
+	<h2>Certificate Management Protocol</h2>
+	<p>the web certificate api based on the certificate management protocol follows by RFC4210. </p>
+	<p>this specification focus on user agent side of RFC4210 CMP</P>
+	<section class='informative'>
+		<h3>Overview</h3>
+		<p>the specification is trying to keep existing RA/CA services with minor changes</p>
+		<p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
+	</section>	
+	<section class='informative'>
+		<h3>Initialization Request</h3>
+		<p>Initialization Request send Initial Authentication Key (IAK) that is generated from RA/CA after verifying End-Entity and reference value to track enrollment process</p>
+	</section>	
 	<section>
-		<h2>Introduction</h2>
-	</section>
+		<h3>Initialization Response</h3>
+		<p>RA/CA verify Initial Authentication Key and return the response.</p>
+		<p>the response message contain CertRepMessage of http://tools.ietf.org/html/rfc4210#section-5.3.2 </p>
+	</section>	
+	<section class='informative'>
+		<h3>Certificate Request</h3>
+		<p>Certificate Request is the next step of initialization request-response</p>
+	</section>	
 	<section>
-		<h2>Use Cases</h2>
-	</section>
+		<h3>Certificate Response</h3>
+		<p>RA/CA generate Certificate for Requested End-Entity.</p>
+		<p>the response message contain the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.4 </p>
+	</section>	
+	<section class='informative'>
+		<h3>Revocation Request</h3>
+		<p>When End-Entity(EE) need to revoke certificate, EE generate signed revocation request and send it to RA/CA.</p>
+	</section>	
 	<section>
-		<h2>Certificate Management Protocol</h2>
-		<p>the web certificate api based on the certificate management protocol follows by RFC4210. </p>
-		<p>this specification focus on user agent side of RFC4210 CMP</P>
-		<section class='informative'>
-			<h3>Overview</h3>
-			<p>the specification is trying to keep existing RA/CA services with minor changes</p>
-			<p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
-		</section>	
-		<section class='informative'>
-			<h3>Initialization Request</h3>
-			<p>Initialization Request send Initial Authentication Key (IAK) that is generated from RA/CA after verifying End-Entity and reference value to track enrollment process</p>
-		</section>	
-		<section>
-			<h3>Initialization Response</h3>
-			<p>RA/CA verify Initial Authentication Key and return the response.</p>
-			<p>the response message contain CertRepMessage of http://tools.ietf.org/html/rfc4210#section-5.3.2 </p>
-		</section>	
-		<section class='informative'>
-			<h3>Certificate Request</h3>
-			<p>Certificate Request is the next step of initialization request-response</p>
-		</section>	
-		<section>
-			<h3>Certificate Response</h3>
-			<p>RA/CA generate Certificate for Requested End-Entity.</p>
-			<p>the response message contain the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.4 </p>
-		</section>	
-		<section class='informative'>
-			<h3>Revocation Request</h3>
-			<p>When End-Entity(EE) need to revoke certificate, EE generate signed revocation request and send it to RA/CA.</p>
-		</section>	
-		<section>
-			<h3>Revocation Response</h3>
-			<p>after verifying requestor's signature, RA/CA revoke certificate and response with the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.10 </p>
-		</section>	
-	</section>
+		<h3>Revocation Response</h3>
+		<p>after verifying requestor's signature, RA/CA revoke certificate and response with the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.10 </p>
+	</section>	
+</section>
 
-	<section>
-		<h2>Certificate Selection</h2>
-		<p>Certificate Selection UI is dependent on implementor's or existing TLS Client Certificate Selection UI.</p>
-		<section class='informative'>
-			<h3>Consideration for Disabilities</h3>
-			<p>the selection UI should be desinged for W3C Web Accessibility Initiative (WAI, http://www.w3.org/WAI/)</p>
-		</section>
+<section>
+	<h2>Certificate Selection</h2>
+	<p>Certificate Selection UI is dependent on implementor's or existing TLS Client Certificate Selection UI.</p>
+	<section class='informative'>
+		<h3>Consideration for Disabilities</h3>
+		<p>the selection UI should be desinged for W3C Web Accessibility Initiative (WAI, http://www.w3.org/WAI/)</p>
 	</section>
+</section>
 
+<section>
+	<h2>Certificate Signing and Encryption</h2>
+	<p>Certificate Signing and Encryption means generating signature that the format is following CMC rule.</p>
 	<section>
-		<h2>Certificate Signing and Encryption</h2>
-		<p>Certificate Signing and Encryption means generating signature that the format is following CMC rule.</p>
+		<h3>Certificate Signing</h3>
+	</section>
+	<section>
+		<h3>Certificate Encryption</h3>
+	</section>
+</section>
+<section>
+	<h2>Certificate Validation</h2>
+	<p>certificate validation is added on to public key verification.</p>
+	<section>
+		<h3>Certificate Chain Validation</h3>
+		<p>certificate chain validation validate certificate chains up to the trusted RootCA.</p>
+	</section>
+	<section>
+		<h3>Certificate CRL Validation</h3>
+		<p>when validating certificate, certificate revocation list will be optionally checked.
 		<section>
-			<h3>Certificate Signing</h3>
-		</section>
-		<section>
-			<h3>Certificate Encryption</h3>
+			<h4>CRL Distribution Point</h4>
+			<p>when the full CRL size is too big to download on low speed network environment, CRLDP can be used for effective CRL checking.</p>
 		</section>
 	</section>
 	<section>
-		<h2>Certificate Validation</h2>
-		<p>certificate validation is added on to public key verification.</p>
-		<section>
-			<h3>Certificate Chain Validation</h3>
-			<p>certificate chain validation validate certificate chains up to the trusted RootCA.</p>
-		</section>
-		<section>
-			<h3>Certificate CRL Validation</h3>
-			<p>when validating certificate, certificate revocation list will be optionally checked.
-			<section>
-				<h4>CRL Distribution Point</h4>
-				<p>when the full CRL size is too big to download on low speed network environment, CRLDP can be used for effective CRL checking.</p>
-			</section>
-		</section>
-		<section>
-			<h3>Certificate OCSP Validation</h3>
-			<p>Online Certificate Status Protocol(OCSP) can be optionally used to validate certificate.</p>
-		</section>
+		<h3>Certificate OCSP Validation</h3>
+		<p>Online Certificate Status Protocol(OCSP) can be optionally used to validate certificate.</p>
 	</section>
+</section>
 
+<section>
+	<h2>Control of TLS Session</h2>
 	<section>
-		<h2>Control of TLS Session</h2>
+		<h3>TLS Login/Logout Control</h3>
+	</section>
+	<section>
+		<h3>Derivation of certificates from TLS session</h3>
 		<section>
-			<h3>TLS Login/Logout Control</h3>
+			<h4>Derivation of server certificate from TLS session</h4>
 		</section>
 		<section>
-			<h3>Derivation of certificates from TLS session</h3>
-			<section>
-				<h4>Derivation of server certificate from TLS session</h4>
-			</section>
-			<section>
-				<h4>Derivation of client certificate from TLS session</h4>
-			</section>
+			<h4>Derivation of client certificate from TLS session</h4>
 		</section>
 	</section>
+</section>
 
+<section>
+	<h2>Data Structures</h2>
 	<section>
-		<h2>Data Structures</h2>
-		<section>
-			<h3>JOSE and CMS</h3>
-		</section>
-		<section>
-			<h3>Common Data Structures of CMP</h3>
-		</section>
+		<h3>JOSE and CMS</h3>
 	</section>
 	<section>
-		<h2>Security Considerations</h2>
-		<section>
-			<h3>Same-Origin Policy</h3>
-			<p>Same Origin Policy is base security policy of WebCrypto API</p>
-			<p>to keep the backward compatibility, some conditional exceptions are required but it does not mean the multiple connections to multiple origins</p> 
-			<p>the exceptions are only for accessing private keys that is binded to some origin initiated from different origin when the faired certificate is valid</p>
-			<p>the exceptions of same-origin policy can be allowed by following conditions</p>
-			<ul>
-				<li>private key access binded to valid certificate
-				<li>the certificate issued by valid CA
-				<li>the CA is listed in trusted CA list of user agent
-			</ul>
-		</section>
-		<section>
-			<h3>Certificate KeyStorage</h3>
-			<p>Certificate KeyStorage should be interoperable with existing TLS Key Storage</p>
-			<p>to keep the backward compatibility, when the certificate is installed into user agent, it will be listed in TLS Key Storage of user agent</p>
-			<p>but the certificate operations will be restricted by the KeyUsage defined in certificate inside.</p>
-			<p>when the certificate and private key pair is inserted via PKCS#11 interface into TLS Key Storage, it also can be used by webcrypto API with valid KeyUsage</p>
-		</section>
+		<h3>Common Data Structures of CMP</h3>
 	</section>
+</section>
+<section>
+	<h2>Security Considerations</h2>
+	<section>
+		<h3>Same-Origin Policy</h3>
+		<p>Same Origin Policy is base security policy of WebCrypto API</p>
+		<p>to keep the backward compatibility, some conditional exceptions are required but it does not mean the multiple connections to multiple origins</p> 
+		<p>the exceptions are only for accessing private keys that is binded to some origin initiated from different origin when the faired certificate is valid</p>
+		<p>the exceptions of same-origin policy can be allowed by following conditions</p>
+		<ul>
+			<li>private key access binded to valid certificate
+			<li>the certificate issued by valid CA
+			<li>the CA is listed in trusted CA list of user agent
+		</ul>
+	</section>
+	<section>
+		<h3>Certificate KeyStorage</h3>
+		<p>Certificate KeyStorage should be interoperable with existing TLS Key Storage</p>
+		<p>to keep the backward compatibility, when the certificate is installed into user agent, it will be listed in TLS Key Storage of user agent</p>
+		<p>but the certificate operations will be restricted by the KeyUsage defined in certificate inside.</p>
+		<p>when the certificate and private key pair is inserted via PKCS#11 interface into TLS Key Storage, it also can be used by webcrypto API with valid KeyUsage</p>
+	</section>
+</section>
+<section class='appendix'>
+</section>
 </body>
 </html>
 
