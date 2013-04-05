@@ -91,6 +91,16 @@
 </section>
 <section>
 	<h2>Use Cases</h2>
+	<p>HongGilDong want to issue certificate that will be used online banking.</p>
+	<p>he visit physical bank branch and retrieve reference number and approval code by face to face verification of bank staff.  the reference number is used to track certificate enrollment process for multiple days.</p> 
+	<p>HongGilDong visit bank website (ra.gangnambank.com).</p> 
+	<p>he generate key pair and send the public key, reference number, approval code and other parameters to bank RA(Registry Authority) center by CMP of RFC4210.</p> 
+	<p>bank RA server forward the request to CA and return the certificate signed by CA to user agent of HongGilDong.</p> 
+	<p>when he want to wire fund online, he enter some verification codes (OTP, password or other authentication methods promised between bank and account holder).</p> 
+	<p>he generate digital signature for agreement document with his private key binded to certificate issued by trusted CA also he envelop the signed document with certificate of bank and send enveloped message to bank.</p> 
+	<p>when he want to revoke certificate, he generate digital signature for revoke request document with his private key also he envelop the signed document with certificate of bank.  and send enveloped message to bank.</p> 
+	<p>bank forward the revoke request to CA.</p> 
+	<p>CA add the certificate to CRL that will be check later by CRL Distribution Point of certificate.  </p> 
 </section>
 <section>
 	<h2>Certificate Management Protocol</h2>
