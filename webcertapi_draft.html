@@ -173,6 +173,19 @@ CertResult - this is the result of cert oepration carried out in CA server.
 
 					</pre>
 				</section>
+				<section>
+					<h5>The genConfirm method</h5>
+					<p>This method generates confirmation message required in CMP protocol sending to CA server that confirms certificate operation is successfully finished. This method is optional since some type of certificate management is not needed</p>
+					<pre class="code">
+Input parameters:
+
+msgID - message identifier that this message confirms
+certID - identifier to locate a certificate and private key in a storage
+keyPass - a password to decrypt a encrypted private key
+Return value:
+
+CertMessage - this can be ASN.1 encoded key revocation request message if CMP is used.					</pre>
+				</section>
 			</section>
 		</section>	
 	</section>
