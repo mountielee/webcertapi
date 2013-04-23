@@ -1,310 +1,174 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
-<!-- saved from url=(0059)http://www.w3.org/TR/WebCryptoAPI/ -->
-<HTML 
-xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Web Cryptography API</TITLE>
-<META content="text/html; charset=UTF-8" http-equiv=Content-Type><LINK 
-rel=stylesheet type=text/css 
-href="Web%20Cryptography%20API_files/webcrypto.css">
-<STYLE type=text/css>.XXX {
-        BORDER-BOTTOM: red solid; BORDER-LEFT: red solid; PADDING-BOTTOM: 0.5em; MARGIN: 1em 0px; PADDING-LEFT: 0.5em; PADDING-RIGHT: 0.5em; BACKGROUND: white; COLOR: #e50000; BORDER-TOP: red solid; BORDER-RIGHT: red solid; PADDING-TOP: 0.5em
-}
-.XXX > :first-child {
-        MARGIN-TOP: 0px
-}
-P .XXX {
-        LINE-HEIGHT: 3em
-}
-</STYLE>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Web Certificate API Specification</title>
+<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+<script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove' async></script>
+<script class='remove'>
+      var respecConfig = {
+          // document info
+          specStatus:           "ED",
+          shortName:            "webcertapi",
+          // publishDate:   "2013-03-29",
+          // previousMaturity: "WD",
+          // previousPublishDate:  "2009-03-15",
+          // previousURI : "http://dev.w3.org/2009/dap/ReSpec.js/documentation.html",
+          copyrightStart:       "2013",
+          edDraftURI:           "http://mountielee.github.com/webcertapi/webcertapi_draft.html",
+          // lcEnd:  "2010-08-06",
+          // extraCSS:             ["../css/respec.css"],
+          extraCSS:             ["http://dev.w3.org/2009/dap/ReSpec.js/css/respec.css"],
 
-<SCRIPT type=application/ecmascript 
-src="Web%20Cryptography%20API_files/section-links.js"></SCRIPT>
-
-<SCRIPT type=application/ecmascript 
-src="Web%20Cryptography%20API_files/dfn.js"></SCRIPT>
-<!--[if IE]>
-<STYLE type=text/css>.ignore {
-        FILTER: alpha(opacity=50)
-}
-</STYLE>
-<![endif]--><LINK rel=stylesheet type=text/css 
-href="Web%20Cryptography%20API_files/W3C-WD.css">
-<META name=GENERATOR content="MSHTML 8.00.7601.18106"></HEAD>
-<BODY>
-<DIV class=head>
-<DIV><A href="http://www.w3.org/"><IMG alt=W3C 
-src="Web%20Cryptography%20API_files/w3c_home.png" width=72 height=48></A></DIV>
-<H1>Web Certificate API</H1>
-<H2>W3C Working Draft <EM>24 April 2013</EM></H2>
-<DL>
-<!--
-  <DT>This Version:</DT>
-  <DD><A 
-  href="http://www.w3.org/TR/2013/WD-WebCryptoAPI-20130108/">http://www.w3.org/TR/2013/WD-WebCryptoAPI-20130108/</A></DD>
-  <DT>Latest Published Version:</DT>
-  <DD><A 
-  href="http://www.w3.org/TR/WebCryptoAPI/">http://www.w3.org/TR/WebCryptoAPI/</A></DD>
-  <DT>Latest Editor’s Draft:</DT>
-  <DD><A 
-  href="https://dvcs.w3.org/hg/webcrypto-api/raw-file/tip/spec/Overview.html">https://dvcs.w3.org/hg/webcrypto-api/raw-file/tip/spec/Overview.html</A></DD>
-  <DT>Previous Version(s):</DT>
-  <DD><A 
-  href="http://www.w3.org/TR/2012/WD-WebCryptoAPI-20120913/">http://www.w3.org/TR/2012/WD-WebCryptoAPI-20120913/</A></DD>
-  -->
-  <DT>Editors:</DT>
-  <DD><A href="http://paygate.net/">Mountie Lee</A>, Paygate 
-  &lt;mountie@paygate.net&gt;</DD>
-  <DD><A href="http://www.etri.re.kr/">Sangrae Cho</A>, ETRI 
-  &lt;sangrae@etri.re.kr&gt;</DD>
-  <DT>Participate:</DT>
-  <DD>
-  <P>Send feedback to <A 
-  href="mailto:public-webcrypto@w3.org?subject=%5BWebCryptoAPI%5D">mailto:public-webcrypto@w3.org?subject=%5BWebCryptoAPI%5D</A> 
-  (<A 
-  href="http://lists.w3.org/Archives/Public/public-webcrypto/">archives</A>), or 
-  <A 
-  href="https://www.w3.org/Bugs/Public/enter_bug.cgi?product=Web%20Cryptography&amp;component=Web%20Cryptography%20API%20Document">file 
-  a bug</A> (see <A 
-  href="https://www.w3.org/Bugs/Public/buglist.cgi?product=Web%20Cryptography&amp;component=Web%20Cryptography%20API%20Document&amp;resolution=---">existing 
-  bugs</A>).</P></DD></DL>
-<P class=copyright><A 
-href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</A> © 
-2013 <A href="http://www.w3.org/"><ABBR 
-title="World Wide Web Consortium">W3C</ABBR></A><SUP>®</SUP> (<A 
-href="http://www.csail.mit.edu/"><ABBR 
-title="Massachusetts Institute of Technology">MIT</ABBR></A>, <A 
-href="http://www.ercim.eu/"><ABBR 
-title="European Research Consortium for Informatics and Mathematics">ERCIM</ABBR></A>, 
-<A href="http://www.keio.ac.jp/">Keio</A>), All Rights Reserved. W3C <A 
-href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</A>, 
-<A 
-href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</A> 
-and <A href="http://www.w3.org/Consortium/Legal/copyright-documents">document 
-use</A> rules apply.</P></DIV>
-<HR>
-
+          // editors
+          editors:  [
+              { name: "Mountie Lee", url: "",
+                company: "PayGate", companyURL: "http://www.paygate.net/" },
+              { name: "Sangrae Cho", url: "",
+                company: "ETRI", companyURL: "http://www.etri.or.kr/" },
+          ],
+          
+          // WG
+          wg:           "Web Cryptography Working Group",
+          wgURI:        "http://www.w3.org/2012/webcrypto/",
+          wgPublicList: "",
+          wgPatentURI:  "",
+      };
+    </script>
+</head>
 <body>
-<DIV class=section>
-<h2>Abstract</h2>
-        <p>The Web Certificate API is the specification for Web Certificate Management Protocol based on RFC-4210.</p>
-</DIV>
+        <section id='abstract'>
+		the Web Certificate API is the specification for Web Certificate Management Protocol based on RFC-4210,
+		control of TLS session and derivation of keys from TLS sessions
+	</section>
 
-<section id='sotd'>
-        <p>the table of contents are defined by Working Group Charter and email comments.</p>
-        <p>definition of WebIDL will be added after getting consensus for table of contents.</p>
-</section>
+	<section id='sotd'>
+		<p>the table of contents are defined by Working Group Charter and email comments.</p>
+		<p>definition of WebIDL will be added after getting consensus for table of contents.</p>
+	</section>
 
-<section>
-        <h2>1.  Introduction</h2>
-</section>
-<section>
-        <h2>2.  Use Cases</h2>
-        <p>HongGilDong want to issue certificate that will be used online banking.</p>
-        <p>he visit physical bank branch and retrieve reference number and approval code by face to face verification of bank staff.  the reference number is used to track certificate enrollment process for multiple days.</p> 
-        <p>HongGilDong visit bank website (ra.gangnambank.com).</p> 
-        <p>he generate key pair and send the public key, reference number, approval code and other parameters to bank RA(Registry Authority) center by CMP of RFC4210.</p> 
-        <p>bank RA server forward the request to CA and return the certificate signed by CA to user agent of HongGilDong.</p> 
-        <p>when he want to wire fund online, he enter some verification codes (OTP, password or other authentication methods promised between bank and account holder).</p> 
-        <p>he generate digital signature for agreement document with his private key binded to certificate issued by trusted CA also he envelop the signed document with certificate of bank and send enveloped message to bank.</p> 
-        <p>when he want to revoke certificate, he generate digital signature for revoke request document with his private key also he envelop the signed document with certificate of bank.  and send enveloped message to bank.</p> 
-        <p>bank forward the revoke request to CA.</p> 
-        <p>CA add the certificate to CRL that will be check later by CRL Distribution Point of certificate.  </p> 
-</section>
-<section>
-        <h2>3. Certificate Lifecycle Control</h2>
-        <p>The Web Certificate API based on the certificate management protocol follows by RFC4210. </p>
-        <p>this specification focus on user agent side of RFC4210 CMP</P>
-        <section class='informative'>
-                <h3>3.1 Overview</h3>
-                <p>the specification is trying to keep existing RA/CA services with minor changes</p>
-                <p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
-</section>      
-                <section>
-                        <h3>3.2 CertMessage interface</h3>
-                                <p>CertMessage is the object that will contain a return value when the request of cmp is generated. The message contained in this object is sent to CA server for certificate oepration.</p>             
-          <div class="block">
-                  <div class="blockTitleDiv"><span class="blockTitle">IDL</span></div>
-                  <div class="blockContent">
-                  <pre class="code">
-                  <code class="idl-code">
+	<section>
+		<h2>Certificate Lifecycle Control</h2>
+		<p>the web certificate api based on the certificate management protocol follows by RFC4210. </p>
+		<p>this specification focus on user agent side of RFC4210 CMP</P>
+		<section class='informative'>
+			<h3>Overview</h3>
+			<p>the specification is trying to keep existing RA/CA services with minor changes</p>
+			<p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
+		</section>	
+		<section class='informative'>
+			<h3>CertMessage interface</h3>
+			<p>CertMessage is the object that will contain a return value when the request of cmp is generated. The message contained in this object is sent to CA server for certificate oepration.</p>
+		<div class="block"><div class="blockTitleDiv"><span class="blockTitle">IDL</span></div><div class="blockContent"><pre class="code"><code class="idl-code">
+[NoInterfaceObject]
 Interface CertMessage { 
         readonly attribute any msgType;
         readonly attribute any msgID;
         readonly attribute any message:
 };
+        </code></pre></div></div>
+        	        
+		</section>	
+		<section>
+			<h3>Initialization Response</h3>
+			<p>RA/CA verify Initial Authentication Key and return the response.</p>
+			<p>the response message contain CertRepMessage of http://tools.ietf.org/html/rfc4210#section-5.3.2 </p>
+		</section>	
+		<section class='informative'>
+			<h3>Certificate Request</h3>
+			<p>Certificate Request is the next step of initialization request-response</p>
+		</section>	
+		<section>
+			<h3>Certificate Response</h3>
+			<p>RA/CA generate Certificate for Requested End-Entity.</p>
+			<p>the response message contain the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.4 </p>
+		</section>	
+		<section class='informative'>
+			<h3>Revocation Request</h3>
+			<p>When End-Entity(EE) need to revoke certificate, EE generate signed revocation request and send it to RA/CA.</p>
+		</section>	
+		<section>
+			<h3>Revocation Response</h3>
+			<p>after verifying requestor's signature, RA/CA revoke certificate and response with the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.10 </p>
+		</section>	
+	</section>
 
-msgType - this indicates which certificate oepation is contained in this message.
-msgID - identifier that identify any related messages during oepration
-message - text based message that is encoded according to msgType
+	<section>
+		<h2>Certificate Selection</h2>
+		<p>Certificate Selection UI is dependent on implementor's or existing TLS Client Certificate Selection UI.</p>
+		<section class='informative'>
+			<h3>Consideration for Disabilities</h3>
+			<p>the selection UI should be desinged for W3C Web Accessibility Initiative (WAI, http://www.w3.org/WAI/)</p>
+		</section>
+	</section>
 
+	<section>
+		<h2>Certificate Validation</h2>
+		<p>certificate validation is added on to public key verification.</p>
+		<section>
+			<h3>Certificate Chain Validation</h3>
+			<p>certificate chain validation validate certificate chains up to the trusted RootCA.</p>
+		</section>
+		<section>
+			<h3>Certificate CRL Validation</h3>
+			<p>when validating certificate, certificate revocation list will be optionally checked.
+			<section>
+				<h4>CRL Distribution Point</h4>
+				<p>when the full CRL size is too big to download on low speed network environment, CRLDP can be used for effective CRL checking.</p>
+			</section>
+		</section>
+		<section>
+			<h3>Certificate OCSP Validation</h3>
+			<p>Online Certificate Status Protocol(OCSP) can be optionally used to validate certificate.</p>
+		</section>
+	</section>
 
-</code></pre></div></div></div>
-                </section>      
-                <section>
-                <h3>3.3 CertResult interface</h3>
-                        <p>CertResult is the object that will contain a return value when the response of cmp is received from a CA Server. This object contains the result of CA operation that is requested by UA.</p>
-                          <div class="block">
-                  <div class="blockTitleDiv"><span class="blockTitle">IDL</span></div>
-                  <div class="blockContent">
-                  <pre class="code">
-                  <code class="idl-code">       
-Interface CertResult { 
-        readonly attribute any status;
-        readonly attribute any msgID;
-        readonly attribute any certificate:
-};
+	<section>
+		<h2>Control of TLS Session</h2>
+		<section>
+			<h3>TLS Login/Logout Control</h3>
+		</section>
+		<section>
+			<h3>Derivation of certificates from TLS session</h3>
+			<section>
+				<h4>Derivation of server certificate from TLS session</h4>
+			</section>
+			<section>
+				<h4>Derivation of client certificate from TLS session</h4>
+			</section>
+		</section>
+	</section>
 
-status - this indicates the result of CA operation requested by UA.
-msgID - identifier that identify any related messages during oepration
-certificate - a certificate that is issued or updated by CA server
-</code></pre></div></div></div>
-</section>      
-
-        <section>
-                <h3>3.4 Cert interface</h3>
-                <p>Cert is the object that requests a certificate operation to CA server and handles a response message from the server.</p>     
-          <div class="block">
-                  <div class="blockTitleDiv"><span class="blockTitle">IDL</span></div>
-                  <div class="blockContent">
-                  <pre class="code">
-                  <code class="idl-code">
-enum ReqType {
-        <span class="comment">// RFC 4210 Certificate Management Protocol.</span>
-        "cmp",
-        <span class="comment">// Certificate Management protocol using CMS.</span>
-        "cmc",
-        <span class="comment">// PKCS#10 type Certificate signing request.</span>
-        "pkcs10",
-};
-
-
-Interface <dfn>Cert</dfn> {
-        CertMessage requestCert (ReqType reqType, KeySpec keySpec, DOMString refCode, DOMString authKey);
-        CertMessage updateCert (ReqType reqType, KeySpec keySpec, DOMString certID, DOMString keyPass);
-        CertMessage revokeCert (ReqType reqType, DOMString certID, DOMString keyPass);
-        CertResult handleResp (CertMessage certMessage);
-        CertMessage genConfirm (DOMString msgID, DOMString certID, DOMString keyPass);
-}
-
-</code></pre></div></div></div>
-
-<section>
-                <h4>3.4.1 Methods and Parameters</h4>
-                <section class='informative'>
-                <h5>3.4.1.1 The requestCert method</h5>
-                <p>This method allows UA to request a certificate to CA. This method returns base64 encoded ASN.1 encoded initial request message if cmp is used.</p>
-
-<p>Input parameters: </p>
-<ul>
-<li>ReqType - { "cmp", "cmsc", "pkcs10", …}</li>
-<li>keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey
-"       priKey and pubKey should be null if key is generated in genCertReq</li>
-<li>authKey - initial authentication key for origin of message</li>
-<li>refCode - reference code to identify a user to request certificate</li>
-</ul>
-Return value:
-<ul>CertMessage - this can be ASN.1 encoded initial request message if CMP is used.</ul>
-        </section>      <!-- end of requestCert -->
-        <section>
-                <h5>3.4.1.2 The updateCert method</h5>
-                <p>This method allows UA to renew a certificate to CA. This method returns ASN.1 encoded initial request message if cmp is used.</p>
-        
-<p>Input parameters: </p>
-<ul><li>ReqType - { "cmp", "cmsc", "pkcs10", …}</li>
-<li>keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey
-"       priKey and pubKey should be null if key is generated in updateCertReq</li>
-<li>certID - identifier to locate a issued certificate and related private key in a storage</li>
-<li>keyPass - a password to decrypt an encrypted private key</li></ul>
-
-<p>Return value: <ul>CertMessage - this can be ASN.1 encoded key update request message if CMP is used.</ul></p>
-        </section>      <!-- end of updateCert -->
-        <section>
-                <h5>3.4.1.3 The revokeCert method</h5>
-                <p>This method allows UA to renew a certificate to CA. This method returns ASN.1 encoded initial request message if cmp is used.</p>
-
-<p>Input parameters: </p>
-<ul><li>ReqType - { "cmp", "cmsc", "pkcs10", …}</li>
-<li>certID - identifier to locate a certificate and private key in a storage</li>
-<li>keyPass - a password to decrypt a encrypted private key</li></ul>
-
-<p>Return value: <ul>CertMessage - this can be ASN.1 encoded key revocation request message if CMP is used.</ul></p>
-        </section>      <!-- end of revokeCert -->
-        <section>
-                <h5>3.4.1.4 The handleResp method</h5>
-                <p>This method handles a response message sent from CA Server.</p>
-        <p>Input parameters: </p>
-<ul><li>CertMessage - this can be ASN.1 encoded response message sent from CA server if CMP is used.</li></ul>
-
-<p>Return value: <ul>CertResult - this is the result of cert oepration carried out in CA server.</ul></p>
-        </section>      <!-- end of handleResp -->
-        <section>
-                <h5>3.4.1.5 The genConfirm method</h5>
-                <p>This method generates confirmation message required in CMP protocol sending to CA server that confirms certificate operation is successfully finished. This method is optional since some type of certificate management is not needed</p>
-        <p>Input parameters: </p>
-<ul><li>msgID - message identifier that this message confirms</li>
-<li>certID - identifier to locate a certificate and private key in a storage</li>
-<li>keyPass - a password to decrypt a encrypted private key</li></ul>
-
-<p>Return value: <ul>CertMessage - this can be ASN.1 encoded key revocation request message if CMP is used.</ul></p>
-        </section>      <!-- end of handleResp -->
-</section> <!-- end of methods and parameters -->
-        
-        </section> <!-- end of Cert interface -->
-</section> <!-- end of Certificate Lifecycle Control -->
-
-<section>
-        <h2>4. Certificate Validation</h2>
-        <p>certificate validation is added on to public key verification.</p>
-        <section>
-                <h3>4.1 Certificate Chain Validation</h3>
-                <p>certificate chain validation validate certificate chains up to the trusted RootCA.</p>
-        </section>
-        <section>
-                <h3>4.2 Certificate CRL Validation</h3>
-                <p>when validating certificate, certificate revocation list will be optionally checked.
-                <section>
-                        <h4>4.2.1 CRL Distribution Point</h4>
-                        <p>when the full CRL size is too big to download on low speed network environment, CRLDP can be used for effective CRL checking.</p>
-                </section>
-        </section>
-        <section>
-                <h3>4.3 Certificate OCSP Validation</h3>
-                <p>Online Certificate Status Protocol(OCSP) can be optionally used to validate certificate.</p>
-        </section>
-</section>
-
-<section>
-        <h2>5. Certificate Signing and Encryption</h2>
-        <p>Certificate Signing and Encryption means generating signature that the format is following CMC rule.</p>
-        <section>
-                <h3>5.1 Certificate Signing</h3>
-        </section>
-        <section>
-                <h3>5.2 Certificate Encryption</h3>
-        </section>
-</section>
-<section>
-        <h2>6. Security Considerations</h2>
-        <section>
-                <h3>5.1 Same-Origin Policy</h3>
-                <p>Same Origin Policy is base security policy of WebCrypto API</p>
-                <p>to keep the backward compatibility, some conditional exceptions are required but it does not mean the multiple connections to multiple origins</p> 
-                <p>the exceptions are only for accessing private keys that is binded to some origin initiated from different origin when the faired certificate is valid</p>
-                <p>the exceptions of same-origin policy can be allowed by following conditions</p>
-                <ul>
-                        <li>private key access binded to valid certificate
-                        <li>the certificate issued by valid CA
-                        <li>the CA is listed in trusted CA list of user agent
-                </ul>
-        </section>
-        <section>
-                <h3>5.2 Certificate KeyStorage</h3>
-                <p>Certificate KeyStorage should be interoperable with existing TLS Key Storage</p>
-                <p>to keep the backward compatibility, when the certificate is installed into user agent, it will be listed in TLS Key Storage of user agent</p>
-                <p>but the certificate operations will be restricted by the KeyUsage defined in certificate inside.</p>
-                <p>when the certificate and private key pair is inserted via PKCS#11 interface into TLS Key Storage, it also can be used by webcrypto API with valid KeyUsage</p>
-        </section>
-</section>
-<section class='appendix'>
-</section>
+	<section>
+		<h2>Data Structures</h2>
+		<section>
+			<h3>JOSE and CMS</h3>
+		</section>
+		<section>
+			<h3>Common Data Structures of CMP</h3>
+		</section>
+	</section>
+	<section>
+		<h2>Security Considerations</h2>
+		<section>
+			<h3>Same-Origin Policy</h3>
+			<p>Same Origin Policy is base security policy of WebCrypto API</p>
+			<p>to keep the backward compatibility, some conditional exceptions are required but it does not mean the multiple connections to multiple origins</p> 
+			<p>the exceptions are only for accessing private keys that is binded to some origin initiated from different origin when the faired certificate is valid</p>
+			<p>the exceptions of same-origin policy can be allowed by following conditions</p>
+			<ul>
+				<li>private key access binded to valid certificate
+				<li>the certificate issued by valid CA
+				<li>the CA is listed in trusted CA list of user agent
+			</ul>
+		</section>
+		<section>
+			<h3>Certificate KeyStorage</h3>
+			<p>Certificate KeyStorage should be interoperable with existing TLS Key Storage</p>
+			<p>to keep the backward compatibility, when the certificate is installed into user agent, it will be listed in TLS Key Storage of user agent</p>
+			<p>but the certificate operations will be restricted by the KeyUsage defined in certificate inside.</p>
+			<p>when the certificate and private key pair is inserted via PKCS#11 interface into TLS Key Storage, it also can be used by webcrypto API with valid KeyUsage</p>
+		</section>
+	</section>
 </body>
 </html>
+
