@@ -64,40 +64,117 @@ Interface CertMessage {
         readonly attribute any msgID;
         readonly attribute any message:
 };
+
+msgType - this indicates which certificate oepation is contained in this message.
+msgID - identifier that identify any related messages during oepration
+message - text based message that is encoded according to msgType
         </code></pre>
         	        
 		</section>	
 		<section>
-			<h3>Initialization Response</h3>
-			<p>RA/CA verify Initial Authentication Key and return the response.</p>
-			<p>the response message contain CertRepMessage of http://tools.ietf.org/html/rfc4210#section-5.3.2 </p>
-		</section>	
-		<section class='informative'>
-			<h3>Certificate Request</h3>
-			<p>Certificate Request is the next step of initialization request-response</p>
-		</section>	
-		<section>
-			<h3>Certificate Response</h3>
-			<p>RA/CA generate Certificate for Requested End-Entity.</p>
-			<p>the response message contain the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.4 </p>
-		</section>	
-		<section class='informative'>
-			<h3>Revocation Request</h3>
-			<p>When End-Entity(EE) need to revoke certificate, EE generate signed revocation request and send it to RA/CA.</p>
-		</section>	
-		<section>
-			<h3>Revocation Response</h3>
-			<p>after verifying requestor's signature, RA/CA revoke certificate and response with the syntax at http://tools.ietf.org/html/rfc4210#section-5.3.10 </p>
-		</section>	
-	</section>
+			<h3>CertResult interface</h3>
+			<p>CertResult is the object that will contain a return value when the response of cmp is received from a CA Server. This object contains the result of CA operation that is requested by UA.</p>
+		<pre class="code">
+			<code class="idl-code">
+Interface CertResult { 
+	readonly attribute any status;
+	readonly attribute any msgID;
+	readonly attribute any certificate:
+};
 
-	<section>
-		<h2>Certificate Selection</h2>
-		<p>Certificate Selection UI is dependent on implementor's or existing TLS Client Certificate Selection UI.</p>
+status - this indicates the result of CA operation requested by UA.
+msgID - identifier that identify any related messages during oepration
+certificate - a certificate that is issued or updated by CA server
+			</code>
+		</pre>
+		</section>	
 		<section class='informative'>
-			<h3>Consideration for Disabilities</h3>
-			<p>the selection UI should be desinged for W3C Web Accessibility Initiative (WAI, http://www.w3.org/WAI/)</p>
-		</section>
+			<h3>Cert interface</h3>
+			<p>Cert is the object that requests a certificate operation to CA server and handles a response message from the server.</p>
+		<pre class="code">
+			<code class="idl-code">
+enum ReqType {
+	// RFC 4210 Certificate Management Protocol.
+	"cmp",
+	// Certificate Management protocol using CMS.
+	"cmc",
+	// PKCS#10 type Certificate signing request.
+	"pkcs10",
+};
+
+
+Interface Cert {
+	CertMessage requestCert (ReqType reqType, KeySpec keySpec, DOMString refCode, DOMString authKey);
+	CertMessage updateCert (ReqType reqType, KeySpec keySpec, DOMString certID, DOMString keyPass);
+	CertMessage revokeCert (ReqType reqType, DOMString certID, DOMString keyPass);
+	CertResult handleResp (CertMessage certMessage);
+	CertMessage genConfirm (DOMString msgID, DOMString certID, DOMString keyPass);
+}
+			</code>
+		</pre>
+			<section>
+				<h4>Methods and Parameters</h4>
+				<section>
+					<h5>The requestCert method</h5>
+					<p>This method allows UA to request a certificate to CA. This method returns base64 encoded ASN.1 encoded initial request message if cmp is used.</p>
+					<pre class="code">
+Input parameters:
+
+ReqType - { "cmp", "cmsc", "pkcs10", …}
+keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey "	priKey and pubKey should be null if key is generated in genCertReq
+authKey - initial authentication key for origin of message
+refCode - reference code to identify a user to request certificate
+
+Return value:
+
+CertMessage - this can be ASN.1 encoded initial request message if CMP is used.
+					</pre>
+				</section>
+				<section>
+					<h5>The updateCert method</h5>
+					<p>This method allows UA to renew a certificate to CA. This method returns ASN.1 encoded initial request message if cmp is used.</p>
+					<pre class="code">
+Input parameters:
+
+ReqType - { "cmp", "cmsc", "pkcs10", …}
+keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey "	priKey and pubKey should be null if key is generated in updateCertReq
+certID - identifier to locate a issued certificate and related private key in a storage
+keyPass - a password to decrypt an encrypted private key
+Return value:
+
+CertMessage - this can be ASN.1 encoded key update request message if CMP is used.
+					</pre>
+				</section>
+				<section>
+					<h5>The revokeCert method</h5>
+					<p>This method allows UA to renew a certificate to CA. This method returns ASN.1 encoded initial request message if cmp is used.</p>
+					<pre class="code">
+Input parameters:
+
+ReqType - { "cmp", "cmsc", "pkcs10", …}
+certID - identifier to locate a certificate and private key in a storage
+keyPass - a password to decrypt a encrypted private key
+Return value:
+
+CertMessage - this can be ASN.1 encoded key revocation request message if CMP is used.
+
+					</pre>
+				</section>
+				<section>
+					<h5>The handleResp method</h5>
+					<p>This method handles a response message sent from CA Server.</p>
+					<pre class="code">
+Input parameters:
+
+CertMessage - this can be ASN.1 encoded response message sent from CA server if CMP is used.
+Return value:
+
+CertResult - this is the result of cert oepration carried out in CA server.
+
+					</pre>
+				</section>
+			</section>
+		</section>	
 	</section>
 
 	<section>
