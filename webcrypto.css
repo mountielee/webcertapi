@@ -1,0 +1,355 @@
+.nt {
+	FONT-SIZE: 14px
+}
+PRE {
+	FONT-SIZE: 14px
+}
+.terminal {
+	FONT-SIZE: 14px
+}
+CODE {
+	FONT-SIZE: 14px
+}
+.prop {
+	FONT-SIZE: 14px
+}
+.esstring {
+	FONT-SIZE: 14px
+}
+.javavalue {
+	FONT-SIZE: 14px
+}
+.idlident {
+	FONT-SIZE: 14px
+}
+.idlstring {
+	FONT-SIZE: 14px
+}
+.xattr {
+	FONT-SIZE: 14px
+}
+.regex {
+	FONT-SIZE: 14px
+}
+.prod-number {
+	FONT-SIZE: 14px
+}
+.prod-lines {
+	FONT-SIZE: 14px
+}
+.prod-mid {
+	FONT-SIZE: 14px
+}
+PRE CODE {
+	FONT-SIZE: 14px !important
+}
+.prod-lines .nt {
+	FONT-SIZE: 14px !important
+}
+.terminal {
+	BACKGROUND: #d9e8ff
+}
+CODE {
+	BACKGROUND: #d9e8ff
+}
+.prop {
+	BACKGROUND: #d9e8ff
+}
+.esstring {
+	BACKGROUND: #d9e8ff
+}
+.javavalue {
+	BACKGROUND: #d9e8ff
+}
+.idlident {
+	BACKGROUND: #d9e8ff
+}
+.idlstring {
+	BACKGROUND: #d9e8ff
+}
+.example {
+	BACKGROUND: #d9e8ff
+}
+.note {
+	BACKGROUND: #d9e8ff
+}
+BLOCKQUOTE {
+	BACKGROUND: #d9e8ff
+}
+TD CODE {
+	BACKGROUND: inherit
+}
+.example BLOCKQUOTE {
+	BACKGROUND: #f0f6ff
+}
+TABLE.grammar {
+	BACKGROUND: #eee
+}
+.ednote {
+	BORDER-BOTTOM: red 3px solid; PADDING-BOTTOM: 0px; MARGIN: 1em 2em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; BACKGROUND: #f8eeee; BORDER-TOP: red 3px solid; PADDING-TOP: 0px
+}
+.ednoteHeader {
+	DISPLAY: block; FONT-WEIGHT: bold; PADDING-TOP: 0.5em
+}
+.toc UL LI {
+	LIST-STYLE-TYPE: none; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+.toc UL {
+	MARGIN-BOTTOM: 0.5em
+}
+.terminal {
+	FONT-FAMILY: monospace !important
+}
+CODE {
+	FONT-FAMILY: monospace !important
+}
+.prop {
+	FONT-FAMILY: monospace !important
+}
+.esstring {
+	FONT-FAMILY: monospace !important
+}
+.javavalue {
+	FONT-FAMILY: monospace !important
+}
+.idlident {
+	FONT-FAMILY: monospace !important
+}
+.idlstring {
+	FONT-FAMILY: monospace !important
+}
+.input {
+	FONT-FAMILY: monospace !important
+}
+PRE.code CODE {
+	BACKGROUND: inherit
+}
+.propattrset {
+	
+}
+.xattr {
+	FONT-FAMILY: monospace
+}
+TABLE {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: hidden; BORDER-COLLAPSE: collapse; BORDER-TOP-STYLE: hidden; BORDER-LEFT-STYLE: hidden
+}
+TABLE THEAD {
+	BORDER-BOTTOM: solid
+}
+TABLE TBODY TH:first-child {
+	BORDER-LEFT: solid
+}
+TABLE TD {
+	BORDER-BOTTOM: thin solid; BORDER-LEFT: solid; PADDING-BOTTOM: 0.2em; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em; VERTICAL-ALIGN: top; BORDER-RIGHT: solid; PADDING-TOP: 0.2em
+}
+TABLE TH {
+	BORDER-BOTTOM: thin solid; BORDER-LEFT: solid; PADDING-BOTTOM: 0.2em; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em; VERTICAL-ALIGN: top; BORDER-RIGHT: solid; PADDING-TOP: 0.2em
+}
+.nt {
+	FONT-FAMILY: monospace; WHITE-SPACE: nowrap
+}
+.prod-lines {
+	FONT-FAMILY: monospace; WHITE-SPACE: nowrap
+}
+.idltype {
+	FONT-WEIGHT: bold
+}
+.idlvalue {
+	FONT-WEIGHT: bold
+}
+.idlop {
+	FONT-WEIGHT: bold
+}
+.esvalue {
+	FONT-WEIGHT: bold
+}
+.estype {
+	FONT-WEIGHT: bold
+}
+.javatype {
+	FONT-WEIGHT: bold
+}
+.javapkg {
+	FONT-WEIGHT: bold
+}
+.regex {
+	FONT-FAMILY: monospace; WHITE-SPACE: nowrap
+}
+.typevar {
+	FONT-STYLE: italic
+}
+.example {
+	BORDER-BOTTOM: #005a9c 3px solid; PADDING-BOTTOM: 0px; MARGIN: 1em 2em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; BORDER-TOP: #005a9c 3px solid; PADDING-TOP: 0px
+}
+.note {
+	BORDER-BOTTOM: #005a9c 3px solid; PADDING-BOTTOM: 0px; MARGIN: 1em 2em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; BORDER-TOP: #005a9c 3px solid; PADDING-TOP: 0px
+}
+.exampleHeader {
+	DISPLAY: block; COLOR: black; FONT-WEIGHT: bold; PADDING-TOP: 0.5em
+}
+.noteHeader {
+	DISPLAY: block; COLOR: black; FONT-WEIGHT: bold; PADDING-TOP: 0.5em
+}
+PRE {
+	MARGIN: 0px; FONT-FAMILY: monospace; OVERFLOW: auto
+}
+PRE.code {
+	PADDING-BOTTOM: 0px; MARGIN: 0px 0px 1em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; PADDING-TOP: 0px
+}
+.block {
+	BORDER-BOTTOM: #90b8de 1px solid; BORDER-LEFT: medium none; PADDING-BOTTOM: 0.5em; MARGIN: 1em 2em; PADDING-LEFT: 0.5em; PADDING-RIGHT: 0.5em; BACKGROUND: #f0f6ff; BORDER-TOP: #90b8de 1px solid; BORDER-RIGHT: medium none; PADDING-TOP: 0px
+}
+.blockTitleDiv {
+	TEXT-ALIGN: left
+}
+.blockTitle {
+	POSITION: relative; PADDING-BOTTOM: 0.25em; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; BACKGROUND: #90b8de; COLOR: white; FONT-SIZE: 80%; TOP: -0.75em; FONT-WEIGHT: bold; PADDING-TOP: 0.25em; LEFT: -1.5em
+}
+DFN {
+	FONT-STYLE: italic; FONT-WEIGHT: bold
+}
+.dfnref {
+	
+}
+LI {
+	MARGIN-TOP: 0.5em; MARGIN-BOTTOM: 0.5em
+}
+UL > LI {
+	LIST-STYLE-TYPE: disc
+}
+.norm {
+	FONT-STYLE: italic
+}
+.rfc2119 {
+	TEXT-TRANSFORM: lowercase; FONT-VARIANT: small-caps
+}
+DFN VAR {
+	FONT-STYLE: normal
+}
+BLOCKQUOTE {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 1em; PADDING-RIGHT: 1em; MARGIN-LEFT: 2em; MARGIN-RIGHT: 2em; PADDING-TOP: 1px
+}
+A.placeholder {
+	COLOR: #00e
+}
+DL.changes > DD {
+	MARGIN-LEFT: 0px
+}
+DD > :first-child {
+	MARGIN-TOP: 0px
+}
+CAPTION {
+	MARGIN-TOP: 1em; CAPTION-SIDE: bottom; FONT-WEIGHT: bold
+}
+BODY {
+	LINE-HEIGHT: 1.3
+}
+
+@media Print    
+{
+.section-link {
+	DISPLAY: none
+}
+    }
+.section-link {
+	FONT-STYLE: normal; WIDTH: 1px; HEIGHT: 1px; VISIBILITY: hidden; FONT-SIZE: 10pt; OVERFLOW: visible
+}
+.section-link A {
+	COLOR: #666; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.section-link A:hover {
+	COLOR: #c00
+}
+.section > *:hover > .section-link {
+	VISIBILITY: visible
+}
+DIV.set {
+	TEXT-INDENT: -1em; MARGIN-LEFT: 3em
+}
+OL.algorithm OL {
+	BORDER-LEFT: #90b8de 1px solid; MARGIN-LEFT: 1em
+}
+DL.switch > DD > OL.only {
+	MARGIN-LEFT: 0px
+}
+DL.switch {
+	PADDING-LEFT: 2em
+}
+DL.switch > DT {
+	MARGIN-TOP: 1em; TEXT-INDENT: -1.5em
+}
+DL.switch > DT + DT {
+	MARGIN-TOP: 0px
+}
+DL.switch > DT:before {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 0px; LINE-HEIGHT: 0.5em; PADDING-LEFT: 0px; WIDTH: 1em; PADDING-RIGHT: 0.5em; DISPLAY: inline-block; CONTENT: '\21AA'; PADDING-TOP: 0px
+}
+.diagram {
+	TEXT-ALIGN: center
+}
+IFRAME {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.ignore {
+	opacity: 0.5
+}
+.comment {
+	COLOR: #005a9c
+}
+.matrix {
+	BORDER-COLLAPSE: collapse; MARGIN-LEFT: auto; MARGIN-RIGHT: auto
+}
+.matrix TH {
+	TEXT-ALIGN: right; BACKGROUND: #d9e8ff
+}
+.matrix TD {
+	BORDER-BOTTOM: #90b8de 1px solid; BORDER-LEFT: #90b8de 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER-TOP: #90b8de 1px solid; BORDER-RIGHT: #90b8de 1px solid; PADDING-TOP: 4px
+}
+.matrix TH {
+	BORDER-BOTTOM: #90b8de 1px solid; BORDER-LEFT: #90b8de 1px solid; PADDING-BOTTOM: 4px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BORDER-TOP: #90b8de 1px solid; BORDER-RIGHT: #90b8de 1px solid; PADDING-TOP: 4px
+}
+.matrix TH.corner {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.matrix TD {
+	TEXT-ALIGN: center; BACKGROUND: #f0f6ff
+}
+.matrix .belowdiagonal {
+	BACKGROUND: #ddd
+}
+UL.notes {
+	PADDING-LEFT: 0px; FONT-SIZE: 90%
+}
+UL.notes LI {
+	LIST-STYLE-TYPE: none
+}
+UL.notes .note-link {
+	VERTICAL-ALIGN: super
+}
+.note-link {
+	FONT-SIZE: 90%
+}
+.code VAR {
+	COLOR: #f44
+}
+BODY.dfnEnabled DFN {
+	CURSOR: pointer
+}
+.dfnPanel {
+	BORDER-BOTTOM: 0.2em outset; POSITION: absolute; BORDER-LEFT: 0.2em outset; PADDING-BOTTOM: 0.5em; PADDING-LEFT: 0.75em; WIDTH: auto; PADDING-RIGHT: 0.75em; DISPLAY: inline; FONT: small sans-serif; BACKGROUND: #dddddd; HEIGHT: auto; COLOR: black; BORDER-TOP: 0.2em outset; CURSOR: default; BORDER-RIGHT: 0.2em outset; PADDING-TOP: 0.5em
+}
+.dfnPanel * {
+	PADDING-BOTTOM: 0px; TEXT-INDENT: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT: inherit; PADDING-TOP: 0px
+}
+.dfnPanel :link {
+	COLOR: black
+}
+.dfnPanel :visited {
+	COLOR: black
+}
+.dfnPanel P {
+	FONT-WEIGHT: bolder
+}
+.dfnPanel LI {
+	LIST-STYLE-POSITION: inside
+}
