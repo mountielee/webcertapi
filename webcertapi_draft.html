@@ -85,8 +85,12 @@ message - text based message that is encoded according to msgType
 		<section>
 			<h3>CertResult interface</h3>
 			<p>CertResult is the object that will contain a return value when the response of cmp is received from a CA Server. This object contains the result of CA operation that is requested by UA.</p>
+
+		<div class="block">
+		<div class="blockTitleDiv"><span class="blockTitle">IDL</span></div>
+                <div class="blockContent">
 		<pre class="code">
-			<code class="idl-code">
+		<code class="idl-code">
 Interface CertResult { 
 	readonly attribute any status;
 	readonly attribute any msgID;
@@ -96,8 +100,10 @@ Interface CertResult {
 status - this indicates the result of CA operation requested by UA.
 msgID - identifier that identify any related messages during oepration
 certificate - a certificate that is issued or updated by CA server
-			</code>
+		</code>
 		</pre>
+		</div>
+		</div>
 		</section>	
 		<section class='informative'>
 			<h3>Cert interface</h3>
