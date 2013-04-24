@@ -160,9 +160,11 @@ CertMessage - this can be ASN.1 encoded initial request message if CMP is used.
 Input parameters:
 
 ReqType - { "cmp", "cmsc", "pkcs10", …}
-keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey "	priKey and pubKey should be null if key is generated in updateCertReq
+keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey 
+	- priKey and pubKey should be null if key is generated in updateCertReq
 certID - identifier to locate a issued certificate and related private key in a storage
 keyPass - a password to decrypt an encrypted private key
+
 Return value:
 
 CertMessage - this can be ASN.1 encoded key update request message if CMP is used.
@@ -177,10 +179,10 @@ Input parameters:
 ReqType - { "cmp", "cmsc", "pkcs10", …}
 certID - identifier to locate a certificate and private key in a storage
 keyPass - a password to decrypt a encrypted private key
+
 Return value:
 
 CertMessage - this can be ASN.1 encoded key revocation request message if CMP is used.
-
 					</pre>
 				</section>
 				<section>
@@ -190,6 +192,7 @@ CertMessage - this can be ASN.1 encoded key revocation request message if CMP is
 Input parameters:
 
 CertMessage - this can be ASN.1 encoded response message sent from CA server if CMP is used.
+
 Return value:
 
 CertResult - this is the result of cert oepration carried out in CA server.
@@ -205,6 +208,7 @@ Input parameters:
 msgID - message identifier that this message confirms
 certID - identifier to locate a certificate and private key in a storage
 keyPass - a password to decrypt a encrypted private key
+
 Return value:
 
 CertMessage - this can be ASN.1 encoded key revocation request message if CMP is used.					</pre>
