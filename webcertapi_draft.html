@@ -61,7 +61,10 @@
 			<h3>CertMessage interface</h3>
 			<p>CertMessage is the object that will contain a return value when the request of cmp is generated. The message contained in this object is sent to CA server for certificate oepration.</p>
 		<div class="block">
-		<pre class="code"><code class="idl-code">
+		div class="blockTitleDiv"><span class="blockTitle">IDL</span></div>
+                <div class="blockContent">
+		<pre class="code">
+		<code class="idl-code">
 Interface CertMessage { 
         readonly attribute any msgType;
         readonly attribute any msgID;
@@ -71,7 +74,9 @@ Interface CertMessage {
 msgType - this indicates which certificate oepation is contained in this message.
 msgID - identifier that identify any related messages during oepration
 message - text based message that is encoded according to msgType
-        </code></pre>
+        	</code>
+		</pre>
+        	</div>
         	</div>
         	        
 		</section>	
