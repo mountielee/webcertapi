@@ -49,17 +49,32 @@
 	</section>
 
 	<section>
+		<h2>Introduction</h2>
+	</section>
+	<section>
+		<h2>Use Cases</h2>
+		<p>HongGilDong want to issue certificate that will be used for online banking.</p>
+        <p>he visit physical bank branch and retrieve reference number and authentication code by face to face verification of bank staff.  the reference number is used to track certificate enrollment process for multiple days.</p>
+        <p>HongGilDong visit bank website (www.gangnambank.com).</p>
+        <p>he generate key pair and send the public key, reference number, authentication code and other parameters to CA(Certificate Authority) server operated by RFC4210 certificate management protocol.</p>
+        <p>the CA return the certificate signed by CA to user agent of HongGilDong.</p>
+        <p>when he want to wire fund online, he enter some verification codes (OTP, password or other authentication methods promised between bank and account holder).</p>
+        <p>he generate digital signature (PKCS#7) for agreement document with his private key binded to certificate issued by trusted CA also he envelop the signed document with certificate of bank and send enveloped message to bank (End to End Encryption).</p>
+        <p>when he want to revoke certificate, he generate digital signature for revoke request document with his private key and send signed message to CA.</p>
+        <p>if accumulated current CRL size is too big (for example, over 100MB), CRL DP (Distrubution Point) will be used for validating certificate</p>
+	</section>
+
+	<section>
 		<h2>Certificate Lifecycle Control</h2>
 		<p>the web certificate api based on the certificate management protocol follows of RFC-4210. </p>
 		<p>this specification focus on user agent side of RFC-4210 CMP</P>
 		<section>
 			<h3>Overview</h3>
-			<p>the specification is trying to keep existing RA/CA services with minor changes</p>
 			<p>Web Certificate API defines the request and response parameters and processed between user agent and RA/CA service providers</p>
 			<p>The following figure illustrates the operational flow of certificate menagement. The UA always requests one of the certificate management operation to a CA server by sending a request message. CA server then processes the request message and sends the result of oepration in a response message back to the UA. The UA handles the response message to retrieve the status and a certificate if necessary and then it optionally sends a confirmation message to CA server to notify the end of an operation.</p>
 			<img src=cert_overview.PNG />
 		</section>	
-		<section class='informative'>
+		<section>
 			<h3>CertMessage interface</h3>
 			<p>CertMessage is the object that will contain a return value when the request of cmp is generated. The message contained in this object is sent to CA server for certificate oepration.</p>
 		<div class="block">
@@ -105,7 +120,7 @@ certificate - a certificate that is issued or updated by CA server
 		</div>
 		</div>
 		</section>	
-		<section class='informative'>
+		<section>
 			<h3>Cert interface</h3>
 			<p>Cert is the object that requests a certificate operation to CA server and handles a response message from the server.</p>
 		<div class="block">
@@ -142,7 +157,7 @@ Interface Cert {
 					<pre class="code">
 Input parameters:
 
-ReqType - { "cmp", "cmsc", "pkcs10", …}
+ReqType - { "cmp", "cmc", "pkcs10", …}
 keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey 
 	- priKey and pubKey should be null if key is generated in genCertReq
 authKey - initial authentication key for origin of message
@@ -159,7 +174,7 @@ CertMessage - this can be ASN.1 encoded initial request message if CMP is used.
 					<pre class="code">
 Input parameters:
 
-ReqType - { "cmp", "cmsc", "pkcs10", …}
+ReqType - { "cmp", "cmc", "pkcs10", …}
 keySpec - keyAlgorithm, keyLength, keyParameter, priKey, pubKey 
 	- priKey and pubKey should be null if key is generated in updateCertReq
 certID - identifier to locate a issued certificate and related private key in a storage
@@ -176,7 +191,7 @@ CertMessage - this can be ASN.1 encoded key update request message if CMP is use
 					<pre class="code">
 Input parameters:
 
-ReqType - { "cmp", "cmsc", "pkcs10", …}
+ReqType - { "cmp", "cmc", "pkcs10", …}
 certID - identifier to locate a certificate and private key in a storage
 keyPass - a password to decrypt a encrypted private key
 
@@ -238,15 +253,6 @@ CertMessage - this can be ASN.1 encoded key revocation request message if CMP is
 		</section>
 	</section>
 
-	<section>
-		<h2>Data Structures</h2>
-		<section>
-			<h3>JOSE and CMS</h3>
-		</section>
-		<section>
-			<h3>Common Data Structures of CMP</h3>
-		</section>
-	</section>
 	<section>
 		<h2>Security Considerations</h2>
 		<section>
