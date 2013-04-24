@@ -54,10 +54,10 @@
 		<h2>Use Cases</h2>
 		<p>HongGilDong want to issue certificate that will be used for online banking.</p>
         <p>he visit physical bank branch and retrieve reference number and authentication code by face to face verification of bank staff.  the reference number is used to track certificate enrollment process for multiple days.</p>
-        <p>HongGilDong visit bank website (www.gangnambank.com).</p>
+        <p>HongGilDong visit CA website (www.trustedca.com).</p>
         <p>he generate key pair and send the public key, reference number, authentication code and other parameters to CA(Certificate Authority) server operated by RFC4210 certificate management protocol.</p>
         <p>the CA return the certificate signed by CA to user agent of HongGilDong.</p>
-        <p>when he want to wire fund online, he enter some verification codes (OTP, password or other authentication methods promised between bank and account holder).</p>
+        <p>when he want to wire fund online, he enter some verification codes (OTP, password or other authentication methods promised between bank and account holder) on bank web site.</p>
         <p>he generate digital signature (PKCS#7) for agreement document with his private key binded to certificate issued by trusted CA also he envelop the signed document with certificate of bank and send enveloped message to bank (End to End Encryption).</p>
         <p>when he want to revoke certificate, he generate digital signature for revoke request document with his private key and send signed message to CA.</p>
         <p>if accumulated current CRL size is too big (for example, over 100MB), CRL DP (Distrubution Point) will be used for validating certificate</p>
